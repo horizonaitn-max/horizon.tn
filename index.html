@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
   <style>
     :root{--paper:#fff;--page:#efede8;--warm:#e3e0da;--ink:#141414;--muted:#4d4a44;--line:#d2cec5;--green:#1f6f54;--green-dark:#0e2620;--button:#14332a;--button-hover:#0e2620;--card-shadow:0 1px 3px rgba(0,0,0,.06);--radius:12px;--max:1080px}
     *{box-sizing:border-box}
@@ -54,7 +54,7 @@
   <a class="skip" href="#main"><span data-ar>إمشي للمحتوى</span><span data-fr>Aller au contenu</span></a>
   <header class="header">
     <nav class="container nav" aria-label="Navigation principale">
-      <a class="brand" href="#top" aria-label="HorizonAI"><span class="brand-logo-wrap"><img class="brand-logo" src="/logo.svg" alt="" aria-hidden="true"></span><span>HorizonAI</span></a>
+      <a class="brand" href="#top" aria-label="HorizonAI"><span class="brand-logo-wrap"><img class="brand-logo" src="logo.svg" alt="" aria-hidden="true"></span><span>HorizonAI</span></a>
       <div class="nav-actions">
         <a class="nav-plan-link" href="#quiz">Trouver mon plan</a>
         <a class="button" href="#contact"><span data-ar>احجز تدقيق ببلاش (20 دقيقة)</span><span data-fr>Réserver un audit gratuit (20 min)</span></a>
@@ -191,7 +191,7 @@
     (function(){
       const body=document.body;
       const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
-      const sendLead=async function(data){const payload=Object.assign({},data,{_subject:data.form_type==='quiz'?'Nouvelle demande (Quiz) - HorizonAI':'Nouvelle demande (Formulaire) - HorizonAI',_template:'table',_captcha:'false'});const r=await fetch('https://formsubmit.co/ajax/khammariadem182@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});const j=await r.json().catch(()=>({}));if(!r.ok||j.success==='false'||j.success===false)throw new Error('submission failed');return r};
+      const sendLead=async function(data){const payload=Object.assign({},data,{_subject:data.form_type==='quiz'?'Nouvelle demande (Quiz) - HorizonAI':'Nouvelle demande (Formulaire) - HorizonAI',_template:'table',_captcha:'false'});const r=await fetch('https://formsubmit.co/ajax/horizonai.tn@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});const j=await r.json().catch(()=>({}));if(!r.ok||j.success==='false'||j.success===false){console.error('FormSubmit response',j);throw new Error('submission failed')};return r};
       const form=document.getElementById('auditForm'), msg=document.getElementById('formMessage');
       form.addEventListener('submit',async function(e){e.preventDefault();if(!form.checkValidity()){form.reportValidity();msg.className='form-message error';msg.textContent='Vérifiez les champs obligatoires.';return}const data=Object.fromEntries(new FormData(form).entries());try{const response=await sendLead(data);if(!response.ok)throw new Error('submission failed');msg.className='form-message success';msg.textContent='Merci, votre demande a bien été enregistrée.';form.reset()}catch(error){msg.className='form-message error';msg.textContent='Impossible d’enregistrer votre demande pour le moment.';}});
       const plans=['Neutre','Standard','Plus','Premium'];
