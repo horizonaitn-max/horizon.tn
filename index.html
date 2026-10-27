@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HorizonAI — Réduisez les commandes refusées et retournées</title>
+  <meta name="description" content="HorizonAI aide les marques et boutiques en ligne en Tunisie à réduire les commandes refusées et retournées grâce à un bot de confirmation et un rapport quotidien.">
+  <meta property="og:title" content="HorizonAI — جودة كوموندات أوضح">
+  <meta property="og:description" content="بوت للتأكيد وتقرير يومي على جودة الطلبات. احجز تدقيق ببلاش (20 دقيقة).">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_TN">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <style>
+    :root{--paper:#fff;--page:#efede8;--warm:#e3e0da;--ink:#141414;--muted:#4d4a44;--line:#d2cec5;--green:#1f6f54;--green-dark:#0e2620;--button:#14332a;--button-hover:#0e2620;--card-shadow:0 1px 3px rgba(0,0,0,.06);--radius:12px;--max:1080px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{margin:0;background:var(--page);color:var(--ink);font-family:'Tajawal','Inter',sans-serif;font-size:17px;line-height:1.7}
+    body[data-lang="fr"]{font-family:'Inter','Tajawal',sans-serif}
+    a{color:inherit;text-decoration:none}
+    button,input,select{font:inherit}
+    button{cursor:pointer}
+    .container{width:min(calc(100% - 32px),var(--max));margin-inline:auto}
+    .skip{position:absolute;top:-60px;right:16px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:20}.skip:focus{top:12px}
+    .header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+    .nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:inline-flex;align-items:center;gap:11px;font-family:Inter,sans-serif;font-weight:700;letter-spacing:-.03em;font-size:22px;direction:ltr}
+    .brand-logo-wrap{width:46px;height:46px;display:grid;place-items:center;background:var(--ink);border-radius:8px;padding:6px;overflow:hidden}.brand-logo{display:block;width:100%;height:100%;object-fit:contain}
+    .nav-actions{display:flex;align-items:center;gap:8px}.lang-toggle{border:0;background:transparent;color:var(--muted);padding:7px 5px;font-size:14px}.lang-toggle strong{color:var(--ink)}
+    .button{display:inline-flex;justify-content:center;align-items:center;min-height:46px;padding:10px 17px;border:1px solid var(--button);border-radius:10px;background:var(--button);color:#fff;font-weight:700;transition:background .2s ease,transform .2s ease,border-color .2s ease}.button:hover{background:var(--button-hover);border-color:var(--button-hover);transform:translateY(-1px)}.button:focus-visible,.lang-toggle:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(31,111,84,.3);outline-offset:3px}.button.secondary{background:transparent;color:var(--button);border-color:var(--button)}.button.secondary:hover{background:var(--button);border-color:var(--button);color:#fff}
+    .hero{padding:72px 0 64px}.hero-grid{display:grid;gap:38px;align-items:center}.eyebrow{color:var(--green);font-weight:700;font-size:14px;letter-spacing:.02em;margin:0 0 14px}.hero h1{font-size:clamp(38px,9vw,68px);line-height:1.15;letter-spacing:-.04em;margin:0 0 20px;max-width:720px}.hero p{color:var(--muted);max-width:630px;margin:0 0 26px;font-size:18px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px}.hero-note{font-size:14px;color:var(--muted);margin-top:15px}
+    .hero-card{border:1px solid var(--line);border-radius:var(--radius);padding:20px;background:var(--warm);box-shadow:var(--card-shadow)}.mini-label{font-size:13px;color:var(--muted);margin:0 0 14px}.signal{display:flex;gap:10px;align-items:flex-start;border-bottom:1px solid var(--line);padding:12px 0}.signal:last-child{border-bottom:0}.signal-dot{width:9px;height:9px;border-radius:50%;background:var(--green);margin-top:10px;flex:0 0 auto}.signal strong{display:block;font-size:17px}.signal span{color:var(--muted);font-size:14px}
+    section{padding:64px 0}.warm{background:var(--warm)}.section-heading{max-width:640px;margin-bottom:30px}.section-heading h2{font-size:clamp(29px,6vw,45px);line-height:1.2;letter-spacing:-.03em;margin:0 0 12px}.section-heading p{color:var(--muted);margin:0}
+    .steps{display:grid;gap:12px}.step{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--card-shadow)}.step-number{font-family:Inter,sans-serif;color:var(--green);font-size:13px;font-weight:700;direction:ltr}.step h3{font-size:21px;margin:8px 0 5px}.step p{color:var(--muted);margin:0}
+    .mockup-grid{display:grid;gap:20px}.mockup{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);padding:18px;box-shadow:var(--card-shadow)}.mockup-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:16px}.mockup-title strong{font-size:18px}.example{font-size:12px;color:var(--green);background:#e3efea;border:1px solid #e3efea;border-radius:999px;padding:2px 8px;white-space:nowrap}.chat{max-width:430px;margin-inline:auto}.chat-top{display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--line);padding-bottom:12px;font-size:14px}.avatar{width:28px;height:28px;border-radius:50%;background:#e3efea;display:grid;place-items:center;color:var(--green);font-weight:700}.bubble{max-width:86%;padding:10px 12px;margin-top:10px;border-radius:10px;font-size:14px}.bubble.bot{background:#e3efea;margin-left:auto;border-bottom-right-radius:3px}.bubble.user{background:#efede8;margin-right:auto;border-bottom-left-radius:3px}.report{direction:rtl}.report-meta{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}.report-meta small{color:var(--muted)}.bar-row{display:grid;grid-template-columns:92px 1fr 42px;align-items:center;gap:8px;font-size:13px;margin:12px 0}.bar{height:9px;background:#e0ddd6;border-radius:20px;overflow:hidden}.bar i{display:block;height:100%;background:var(--green);border-radius:20px}.report-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}.report-list div{border:1px solid var(--line);border-radius:8px;padding:9px;font-size:13px;color:var(--muted)}.report-list strong{display:block;color:var(--ink);font-size:14px}
+    .contact-grid{display:grid;gap:28px;align-items:start}.contact-copy h2{font-size:clamp(29px,6vw,45px);line-height:1.2;letter-spacing:-.03em;margin:0 0 12px}.contact-copy p{color:var(--muted);margin:0}.form-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--card-shadow)}.form-grid{display:grid;gap:14px}.field label{display:block;font-size:14px;font-weight:700;margin-bottom:5px}.field input,.field select{width:100%;min-height:46px;padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);direction:rtl}.field input::placeholder{color:#9a9892}.form-actions{margin-top:18px}.form-note{font-size:12px;color:var(--muted);margin:10px 0 0}.form-message{font-size:14px;margin:12px 0 0;min-height:24px}.form-message.success{color:var(--green)}.form-message.error{color:#8a3d2f}
+
+    .mockup-caption{color:var(--muted);font-size:13px;margin:14px 0 0}.four-steps{grid-template-columns:1fr}.pricing-box{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px}.pricing-box .section-heading{margin:0}.faq{border-top:1px solid var(--line)}.faq details{border-bottom:1px solid var(--line);padding:0}.faq summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:700;display:flex;justify-content:space-between;gap:20px}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:'+';color:var(--green);font-family:Inter,sans-serif;font-size:22px;line-height:1}.faq details[open] summary:after{content:'−'}.faq p{color:var(--muted);margin:0 0 18px;max-width:720px}
+
+    .nav-plan-link{color:var(--green);font-weight:700;font-size:14px;padding:7px 5px}.nav-plan-link:hover{text-decoration:underline}
+    .quiz-section{background:var(--warm)}.quiz-card{max-width:760px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--card-shadow)}.quiz-progress{display:flex;align-items:center;gap:14px;margin-bottom:24px;color:var(--muted);font-size:14px;font-weight:700}.quiz-progress-bar{height:8px;flex:1;background:#e0ddd6;border-radius:20px;overflow:hidden}.quiz-progress-bar span{display:block;height:100%;width:25%;background:var(--green);border-radius:20px;transition:width .25s ease}.quiz-question{animation:quizIn .25s ease}.quiz-question h3{font-size:clamp(23px,5vw,32px);line-height:1.25;margin:0 0 18px}.quiz-choices{display:grid;gap:10px}.quiz-choice{width:100%;min-height:58px;text-align:left;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:14px 16px;font-weight:600;transition:border-color .2s ease,background .2s ease,transform .2s ease}.quiz-choice:hover,.quiz-choice:focus-visible{border-color:var(--green);background:#e3efea;transform:translateY(-1px)}.quiz-actions{display:flex;justify-content:flex-start;margin-top:22px}.quiz-actions .button[disabled]{opacity:.45;cursor:not-allowed;transform:none}.quiz-result[hidden],.quiz-question[hidden],.quiz-lead-extra[hidden]{display:none}.quiz-result{animation:quizIn .25s ease}.quiz-result h3{font-size:clamp(26px,5vw,38px);margin:0 0 8px}.quiz-result-intro{color:var(--muted);margin:0 0 18px}.plan-card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:#fff;box-shadow:var(--card-shadow)}.plan-card.recommended{border:2px solid var(--green);padding:17px}.plan-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.plan-card h4{font-size:24px;margin:0}.plan-price{color:var(--green);font-weight:800;white-space:nowrap}.recommend-badge{display:inline-block;background:var(--green);color:#fff;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700;margin-top:8px}.plan-card ul{margin:14px 0 0;padding-inline-start:20px}.plan-card li{margin:5px 0}.quiz-reasons{color:var(--muted);font-size:14px;margin:16px 0 0}.quiz-restart{display:inline-block;margin:16px 0;color:var(--green);font-weight:700;text-decoration:underline}.quiz-lead{border-top:1px solid var(--line);margin-top:22px;padding-top:22px}.quiz-lead h4{font-size:21px;margin:0 0 6px}.quiz-lead p{color:var(--muted);margin:0 0 16px}.quiz-lead-form{display:grid;gap:12px}.quiz-lead-form textarea{width:100%;min-height:100px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;resize:vertical;font:inherit}.quiz-success{color:var(--green);font-weight:700;margin-top:12px}.plans-section .section-heading{margin-bottom:22px}.plans-grid{display:grid;gap:12px}.static-plan{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--card-shadow)}.static-plan h3{margin:0;font-size:22px}.static-plan .price{color:var(--green);font-weight:800;margin:8px 0}.static-plan p{color:var(--muted);margin:0}.quiz-lead-form input,.quiz-lead-form textarea{direction:ltr}
+    @keyframes quizIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+    .footer{border-top:1px solid #14201c;padding:24px 0;background:#14201c;color:#efede8;font-size:14px}.footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}.footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    [data-fr]{display:none}body[data-lang="fr"] [data-ar]{display:none}body[data-lang="fr"] [data-fr]{display:block}body[data-lang="fr"] .inline-fr{display:inline}body[data-lang="fr"] .inline-ar{display:none}.inline-fr{display:none}.inline-ar{display:inline}body[data-lang="fr"] .hero p,body[data-lang="fr"] .section-heading p,body[data-lang="fr"] .step p,body[data-lang="fr"] .contact-copy p{text-align:left}body[data-lang="fr"] .field input,body[data-lang="fr"] .field select{direction:ltr}body[data-lang="fr"] .report{direction:ltr}
+    .fade{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}.fade.visible{opacity:1;transform:none}
+    @media (min-width:760px){.container{width:min(calc(100% - 48px),var(--max))}.hero{padding:112px 0 96px}.hero-grid{grid-template-columns:1.12fr .88fr;gap:70px}.steps{grid-template-columns:repeat(3,1fr)}.four-steps{grid-template-columns:repeat(4,1fr)}.mockup-grid{grid-template-columns:1fr 1fr}.contact-grid{grid-template-columns:.8fr 1.2fr;gap:80px}section{padding:96px 0}.form-grid{grid-template-columns:1fr 1fr}.field.full{grid-column:1/-1}.form-card{padding:28px}.nav-actions{gap:16px}}
+    @media (max-width:480px){.nav{gap:6px;min-width:0}.brand{font-size:17px;gap:8px;min-width:0}.brand-logo-wrap{width:42px;height:42px}.nav-actions{gap:4px;min-width:0}.nav-plan-link{max-width:72px;padding-inline:2px;font-size:12px;line-height:1.25;text-align:center}.header .button{max-width:124px;padding-inline:10px;font-size:12px;line-height:1.25;text-align:center}.hero-actions .button{width:100%}.hero-card{padding:16px}.quiz-card,.form-card{padding:16px}.plan-card-head,.report-meta{flex-wrap:wrap;gap:8px}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade{opacity:1;transform:none;transition:none}.button{transition:none}}
+  </style>
+</head>
+<body data-lang="fr" dir="ltr">
+  <a class="skip" href="#main"><span data-ar>إمشي للمحتوى</span><span data-fr>Aller au contenu</span></a>
+  <header class="header">
+    <nav class="container nav" aria-label="Navigation principale">
+      <a class="brand" href="#top" aria-label="HorizonAI"><span class="brand-logo-wrap"><img class="brand-logo" src="/logo.svg" alt="" aria-hidden="true"></span><span>HorizonAI</span></a>
+      <div class="nav-actions">
+        <a class="nav-plan-link" href="#quiz">Trouver mon plan</a>
+        <a class="button" href="#contact"><span data-ar>احجز تدقيق ببلاش (20 دقيقة)</span><span data-fr>Réserver un audit gratuit (20 min)</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="fade">
+          <p class="eyebrow"><span data-ar>للماركات والمتاجر الأونلاين في تونس</span><span data-fr>Pour les marques et boutiques en ligne en Tunisie</span></p>
+          <h1><span data-ar>الكوموندات اللي يترفضو ويرجعو ياكلو في ربحك. نحبسوهم.</span><span data-fr>Réduisez vos commandes COD refusées et retournées.</span></h1>
+          <p><span data-ar>بوت يأكّد كل كوموند قبل ما تبعثها، وتقرير كل نهار يوريك وين تخسر وعلاش.</span><span data-fr>Un bot de confirmation vérifie la commande, l’adresse et la taille avant la livraison. Chaque jour, vous voyez la qualité de vos commandes dans un rapport clair.</span></p>
+          <div class="hero-actions"><a class="button" href="#contact"><span data-ar>احجز تدقيق ببلاش (20 دقيقة)</span><span data-fr>Réserver un audit gratuit (20 min)</span></a><a class="button secondary" href="#quiz"><span data-ar>لقى الخطة المناسبة</span><span data-fr>Trouver mon plan</span></a></div>
+          <p class="hero-note"><span data-ar>ما نطلبوش منك بطاقة ولا التزام.</span><span data-fr>Nous ne demandons ni carte ni engagement.</span></p>
+        </div>
+        <div class="mockup chat hero-chat fade" aria-label="Confirmation de commande">
+          <div class="mockup-title"><strong><span data-ar>انستاغرام</span><span data-fr>Confirmation</span></strong><span class="example">Exemple</span></div>
+          <div class="chat-top"><span class="avatar">H</span><span>HorizonAI</span></div>
+          <div class="bubble bot"><span data-ar>عسلامة! نأكدولك الكوموند قبل الشحن: العنوان والقياس صحيحين؟</span><span data-fr>Bonjour ! On confirme votre commande avant l’envoi : l’adresse et la taille sont correctes ?</span></div>
+          <div class="bubble user"><span data-ar>إي، صحيح.</span><span data-fr>Oui, c’est correct.</span></div>
+          <div class="bubble bot"><span data-ar>باهي، نبعثوها. شكراً!</span><span data-fr>Parfait, nous l’envoyons. Merci !</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container section-heading fade">
+        <p class="eyebrow"><span data-ar>المشكل</span><span data-fr>Le problème</span></p>
+        <h2><span data-ar>الخسارة ما تبانش، أما موجودة</span><span data-fr>La perte ne se voit pas toujours, mais elle existe</span></h2>
+        <p><span data-ar>كل كوموند تترفض معناها: خلّصت التوصيل، والقطعة بقات محبوسة، والإعلان تضيّع. وبرشا من أصحاب المتاجر ما يعرفوش وين تمشي الخسارة: من المنتج؟ من المقاس؟ من شركة التوصيل؟ ولا من وين جا الكلاينت؟</span><span data-fr>Chaque commande refusée signifie : livraison payée, article bloqué et budget publicitaire perdu. Beaucoup de boutiques ne savent pas d’où vient la perte : du produit, de la taille, du livreur ou de la source du client.</span></p>
+      </div>
+    </section>
+
+    <section class="warm" id="how">
+      <div class="container">
+        <div class="section-heading fade"><h2><span data-ar>كيفاش نخدمو</span><span data-fr>De la commande au suivi, plus de clarté.</span></h2><p><span data-ar></span><span data-fr>Nous partons de votre parcours actuel : Instagram, TikTok et Facebook.</span></p></div>
+        <div class="steps">
+          <article class="step fade"><span class="step-number">01</span><h3><span data-ar>نأكّدو</span><span data-fr>Confirmer la commande</span></h3><p><span data-ar>البوت يكتب للكلاينت قبل الشحن ويتأكد من العنوان والمقاس.</span><span data-fr>Le bot contacte le client pour revoir les détails.</span></p></article>
+          <article class="step fade"><span class="step-number">02</span><h3><span data-ar>نصلّحو</span><span data-fr>Clarifier avant livraison</span></h3><p><span data-ar>تذكير، مساعد مقاسات، ومتابعة للكوموندات المعلّقة.</span><span data-fr>Adresse, taille et choix sont vérifiés avant l’expédition.</span></p></article>
+          <article class="step fade"><span class="step-number">03</span><h3><span data-ar>نقيسو</span><span data-fr>Comprendre la qualité</span></h3><p><span data-ar>تقرير كل نهار بنسبة التسليم والرفض والإرجاع حسب المنتج وشركة التوصيل والمقاس.</span><span data-fr>Un rapport quotidien montre la répartition par livraison, produit et taille.</span></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        <div class="section-heading fade"><p class="eyebrow">Choisir plus facilement</p><h2>Trouvez votre plan</h2><p>Répondez à quatre questions pour recevoir une recommandation adaptée à votre situation.</p></div>
+        <div class="quiz-card fade" id="planQuiz">
+          <div class="quiz-progress"><span id="quizProgressLabel">Question 1 sur 4</span><div class="quiz-progress-bar" aria-hidden="true"><span id="quizProgressBar"></span></div></div>
+          <div class="quiz-question" id="quizQuestion" aria-live="polite"></div>
+          <div class="quiz-actions"><button class="button secondary" id="quizBack" type="button" disabled>Retour</button></div>
+          <div class="quiz-result" id="quizResult" hidden aria-live="polite">
+            <h3>Votre plan recommandé</h3><p class="quiz-result-intro">Voici le plan qui correspond le mieux à vos réponses.</p>
+            <div class="plan-card recommended" id="recommendedPlan"></div>
+            <a class="quiz-restart" href="#quiz" id="quizRestart">Recommencer le quiz</a>
+            <div class="quiz-lead">
+              <h4>Réserver mon audit gratuit</h4><p>Notre équipe vous contactera pour confirmer un rendez-vous.</p>
+              <form class="quiz-lead-form" id="quizLeadForm" novalidate>
+                <div class="field"><label for="quizName">Nom</label><input id="quizName" name="name" required autocomplete="name" placeholder="Exemple : Amine"></div>
+                <div class="field"><label for="quizBrand">Nom de la marque</label><input id="quizBrand" name="brand" required placeholder="Exemple : Nom de marque"></div>
+                <div class="field"><label for="quizPhone">Numéro de téléphone</label><input id="quizPhone" name="phone" type="tel" required placeholder="+216 XX XXX XXX"></div>
+                <div class="quiz-lead-extra" id="quizLeadExtra" hidden><label for="quizAutomation">Que souhaitez-vous automatiser ?</label><textarea id="quizAutomation" name="automation" placeholder="Exemple : relancer les clients qui n'ont pas confirmé"></textarea></div>
+                <button class="button" type="submit">Réserver mon audit gratuit</button>
+                <p class="quiz-success" id="quizSuccess" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="plans-section">
+      <div class="container"><div class="section-heading fade"><p class="eyebrow">Des options claires</p><h2>Nos plans</h2><p>Des formules mensuelles pour choisir le niveau d’accompagnement qui vous convient.</p></div><div class="plans-grid">
+        <article class="static-plan fade"><h3>Neutre</h3><p class="price">219 DT / mois</p><p>Chatbot.</p></article>
+        <article class="static-plan fade"><h3>Standard</h3><p class="price">249 DT / mois</p><p>Chatbot + rapport quotidien des commandes.</p></article>
+        <article class="static-plan fade"><h3>Plus</h3><p class="price">289 DT / mois</p><p>Tout Standard + une automatisation de votre choix : vous nous dites ce que vous voulez automatiser et nous le construisons.</p></article>
+        <article class="static-plan fade"><h3>Premium</h3><p class="price">329 DT / mois</p><p>Tout Plus + site web.</p></article>
+      </div></div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading fade"><h2><span data-ar>شنوّة تحصل عليه</span><span data-fr>Voyez le processus, pas des promesses.</span></h2><p><span data-ar>بوت تأكيد + تقرير يوريك نسبة الرفض والإرجاع حسب المنتج، شركة التوصيل، المقاس، ومصدر الكلاينت. وكيفاش تتحسب الخسارة بالدينار.</span><span data-fr>Le rapport quotidien liste les clients qui ont passé une commande via le bot : commandes livrées, refusées et retournées, avec un détail par produit, taille et société de livraison.</span></p></div>
+        <div class="mockup-grid">
+          <article class="mockup chat fade"><div class="mockup-title"><strong><span data-ar>محادثة تأكيد</span><span data-fr>Conversation de confirmation</span></strong><span class="example">Exemple</span></div><div class="chat-top"><span class="avatar">H</span><span>HorizonAI</span></div><div class="bubble bot"><span data-ar>عسلامة! نأكدولك كوموندك: تيشرت أسود، قياس M، والعنوان في تونس؟</span><span data-fr>Bonjour ! On confirme votre commande : t-shirt noir, taille M, adresse à Tunis ?</span></div><div class="bubble user"><span data-ar>إي، صحيح.</span><span data-fr>Oui, c’est correct.</span></div><div class="bubble bot"><span data-ar>باهي، نبعثوها مع لوفريزون. شكراً!</span><span data-fr>Parfait, nous l’envoyons avec le livreur. Merci !</span></div></article>
+          <article class="mockup report fade"><div class="mockup-title"><strong><span data-ar>تقرير جودة الكوموندات</span><span data-fr>Rapport qualité des commandes</span></strong><span class="example">Exemple</span></div><div class="report-meta"><div><strong><span data-ar>ملخّص النهار</span><span data-fr>Résumé du jour</span></strong></div><small><span data-ar>مثال بأرقام تجريبية</span><span data-fr>Exemple avec des chiffres fictifs</span></small></div><div class="bar-row"><span><span data-ar>تسلّمت</span><span data-fr>Livrées</span></span><div class="bar"><i style="width:72%"></i></div><b>—</b></div><div class="bar-row"><span><span data-ar>مرفوضة</span><span data-fr>Refusées</span></span><div class="bar"><i style="width:21%"></i></div><b>—</b></div><div class="report-list"><div><strong><span data-ar>حسب لوفريزون</span><span data-fr>Par livreur</span></strong><span data-ar>وين تتعاود الرفض</span><span data-fr>Où les refus reviennent</span></div><div><strong><span data-ar>حسب البرودوي</span><span data-fr>Par produit</span></strong><span data-ar>شنوّة يتأثر</span><span data-fr>Ce qui est concerné</span></div><div><strong><span data-ar>حسب القياس</span><span data-fr>Par taille</span></strong><span data-ar>فهم الاختيارات</span><span data-fr>Comprendre les choix</span></div><div><strong><span data-ar>ملاحظات</span><span data-fr>Observations</span></strong><span data-ar>للنقاش في التدقيق</span><span data-fr>À discuter pendant l’audit</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="warm">
+      <div class="container section-heading fade"><p class="eyebrow"><span data-ar>للماركات اللي تعمل drops</span><span data-fr>Pour les marques qui font des drops</span></p><h2><span data-ar>تعمل drop؟</span><span data-fr>Vous faites des drops ?</span></h2><p><span data-ar>قائمة انتظار قبل الإطلاق، وتأكيد فوري وقت الـ drop. وكان الكلاينت ما أكّدش، القطعة تمشي للّي بعدو في القائمة.</span><span data-fr>Une liste d’attente avant le lancement, puis une confirmation immédiate au moment du drop. Si le client ne confirme pas, la pièce passe à la personne suivante.</span></p></div>
+    </section>
+    <section>
+      <div class="container"><div class="section-heading fade"><h2><span data-ar>من الأول للآخر</span><span data-fr>Du début à la suite</span></h2></div><div class="steps four-steps">
+        <article class="step fade"><span class="step-number">01</span><h3><span data-ar>تدقيق ببلاش (20 دقيقة)</span><span data-fr>Audit gratuit (20 min)</span></h3></article>
+        <article class="step fade"><span class="step-number">02</span><h3><span data-ar>تجربة 3-4 سيمانات على متجر واحد</span><span data-fr>Essai de 3 à 4 semaines sur une boutique</span></h3></article>
+        <article class="step fade"><span class="step-number">03</span><h3><span data-ar>مقارنة قبل وبعد بأرقام كوموندات متجرك</span><span data-fr>Comparaison avant/après avec les chiffres de votre boutique</span></h3></article>
+        <article class="step fade"><span class="step-number">04</span><h3><span data-ar>وكان عجبتك النتيجة، نكملو بخطة شهرية</span><span data-fr>Si le résultat vous convient, nous continuons avec un plan mensuel</span></h3></article>
+      </div></div>
+    </section>
+    <section class="warm">
+      <div class="container pricing-box fade"><div class="section-heading"><h2><span data-ar>التسعير</span><span data-fr>Tarification</span></h2><p><span data-ar>نبداو بتجربة على متجر واحد. ما نطلبوش منك التزام طويل قبل ما تشوف النتائج. اطلب عرض سعر.</span><span data-fr>Consultez les formules ci-dessus ou demandez un devis adapté à votre besoin.</span></p></div><a class="button" href="#contact"><span data-ar>اطلب عرض سعر</span><span data-fr>Demander un devis</span></a></div>
+    </section>
+    <section>
+      <div class="container"><div class="section-heading fade"><h2><span data-ar>أسئلة يسأل عليها الناس</span><span data-fr>Questions fréquentes</span></h2></div><div class="faq fade">
+        <details><summary><span data-ar>البوت يعوّض فريقي؟</span><span data-fr>Le bot remplace-t-il mon équipe ?</span></summary><p><span data-ar>لا. يدير التأكيد العادي، والحالات الصعبة يعدّيها لك.</span><span data-fr>Non. Il gère la confirmation habituelle et vous transmet les cas difficiles.</span></p></details>
+        <details><summary><span data-ar>وكان الكلاينت يحب يحكي مع بنادم؟</span><span data-fr>Et si le client veut parler à une personne ?</span></summary><p><span data-ar>يطلب ذلك وقتما يحب، ويتحول الحديث لعندك.</span><span data-fr>Il peut le demander à tout moment et la conversation vous est transférée.</span></p></details>
+        <details><summary><span data-ar>كيفاش تتعاملو مع بيانات الكلاينت؟</span><span data-fr>Comment traitez-vous les données du client ?</span></summary><p><span data-ar>رقم الهاتف يتستعمل برك باش البوت يكتب للكلاينت، وما يظهرش في التقرير. والتقرير يتحسب من ملف الكوموندات متاعك.</span><span data-fr>Le numéro sert uniquement au bot pour écrire au client et n’apparaît pas dans le rapport. Le rapport est calculé à partir de votre fichier de commandes.</span></p></details>
+        <details><summary><span data-ar>كيفاش تثبتو النتيجة؟</span><span data-fr>Comment mesurez-vous le résultat ?</span></summary><p><span data-ar>نقيسو نسبة الرفض قبل التجربة وبعدها من كوموندات متجرك نفسه.</span><span data-fr>Nous mesurons le taux de refus avant et après l’essai, à partir des commandes de votre boutique.</span></p></details>
+        <details><summary><span data-ar>وكان ما نجحش؟</span><span data-fr>Et si ça ne marche pas ?</span></summary><p><span data-ar>تعرف ذلك من الأرقام في آخر التجربة.</span><span data-fr>Vous le verrez dans les chiffres à la fin de l’essai.</span></p></details>
+      </div></div>
+    </section>
+
+    <section class="warm" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy fade"><p class="eyebrow"><span data-ar>الخطوة الأولى بسيطة</span><span data-fr>La première étape est simple</span></p><h2><span data-ar>ابعثلنا رابط الإنستاغرام متاعك</span><span data-fr>Envoyez-nous le lien Instagram de votre boutique</span></h2><p><span data-ar>ونرجعولك بتدقيق ببلاش.</span><span data-fr>Nous vous recontacterons pour un audit gratuit.</span></p></div>
+        <form class="form-card fade" id="auditForm" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="name"><span data-ar>الاسم</span><span data-fr>Nom</span></label><input id="name" name="name" required autocomplete="name" placeholder="Exemple: آمنة" /></div>
+            <div class="field"><label for="brand"><span data-ar>اسم الماركة</span><span data-fr>Nom de la marque</span></label><input id="brand" name="brand" required placeholder="Exemple: Nom de marque" /></div>
+            <div class="field full"><label for="instagram"><span data-ar>رابط الإنستاغرام</span><span data-fr>Lien Instagram</span></label><input id="instagram" name="instagram" type="url" required placeholder="https://instagram.com/..." /></div>
+            <div class="field"><label for="phone"><span data-ar>رقم الهاتف</span><span data-fr>Numéro de téléphone</span></label><input id="phone" name="phone" type="tel" required placeholder="+216 XX XXX XXX" /></div>
+          </div>
+          <div class="form-actions"><button class="button" type="submit"><span data-ar>ابعث</span><span data-fr>Envoyer</span></button></div>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><span>HorizonAI</span><span><a href="tel:+21622769452">Téléphone +216 22 769 452</a> · <a href="tel:+21624444303">+216 24 444 303</a> · Instagram <a href="https://instagram.com/horizonai.tnn" target="_blank" rel="noopener">horizonai.tnn</a> · Email <a href="mailto:horizonai.tn@gmail.com">horizonai.tn@gmail.com</a></span><span><span data-fr>Vos informations servent uniquement a vous recontacter.</span></span></div></footer>
+  <script>
+    (function(){
+      const body=document.body;
+      const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+      const sendLead=async function(data){const payload=Object.assign({},data,{_subject:data.form_type==='quiz'?'Nouvelle demande (Quiz) - HorizonAI':'Nouvelle demande (Formulaire) - HorizonAI',_template:'table',_captcha:'false'});const r=await fetch('https://formsubmit.co/ajax/khammariadem182@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});const j=await r.json().catch(()=>({}));if(!r.ok||j.success==='false'||j.success===false)throw new Error('submission failed');return r};
+      const form=document.getElementById('auditForm'), msg=document.getElementById('formMessage');
+      form.addEventListener('submit',async function(e){e.preventDefault();if(!form.checkValidity()){form.reportValidity();msg.className='form-message error';msg.textContent='Vérifiez les champs obligatoires.';return}const data=Object.fromEntries(new FormData(form).entries());try{const response=await sendLead(data);if(!response.ok)throw new Error('submission failed');msg.className='form-message success';msg.textContent='Merci, votre demande a bien été enregistrée.';form.reset()}catch(error){msg.className='form-message error';msg.textContent='Impossible d’enregistrer votre demande pour le moment.';}});
+      const plans=['Neutre','Standard','Plus','Premium'];
+      const planDetails={
+        Neutre:{price:'219 DT / mois',description:'Chatbot.',reasons:['Vous voulez répondre et confirmer sans ajouter de suivi quotidien.']},
+        Standard:{price:'249 DT / mois',description:'Chatbot + rapport quotidien des commandes.',reasons:['Vous voulez réduire les refus et retours.','Vous voulez suivre vos commandes chaque jour.']},
+        Plus:{price:'289 DT / mois',description:'Tout Standard + une automatisation de votre choix.',reasons:['Vous voulez un rapport quotidien.','Vous avez une automatisation précise à construire.']},
+        Premium:{price:'329 DT / mois',description:'Tout Plus + site web.',reasons:['Vous voulez un système complet.','Vous avez besoin d’un site web.']}
+      };
+      const questions=[
+        {text:'Quel est votre problème principal aujourd’hui ?',answers:[['Trop de commandes refusées ou retournées à la livraison','Standard'],['Je réponds à tous les messages à la main (Instagram...)','Neutre'],['Je ne sais pas combien de commandes sont vraiment livrées','Standard'],['Je veux un système complet, site inclus','Premium']]},
+        {text:'Combien de commandes recevez-vous environ par semaine ?',answers:[['Moins de 20','Neutre'],['20 à 100','Standard'],['Plus de 100','Plus']]},
+        {text:'Qu’aimeriez-vous recevoir pour suivre vos ventes ?',answers:[['Rien, juste un bot qui répond et confirme','Neutre'],['Un rapport quotidien clair sur mes commandes','Standard'],['Un rapport quotidien + une automatisation sur mesure que je choisis','Plus']]},
+        {text:'Avez-vous déjà un site web pour votre boutique ?',answers:[['Oui, ça me suffit','keep'],["Non, j’en ai besoin d’un",'Premium']]}
+      ];
+      let questionIndex=0;let selected=[];const scoreWeights={Neutre:1,Standard:2,Plus:3,Premium:4};let scores={Neutre:0,Standard:0,Plus:0,Premium:0};let recommended='';
+      const qEl=document.getElementById('quizQuestion'),back=document.getElementById('quizBack'),progress=document.getElementById('quizProgressLabel'),bar=document.getElementById('quizProgressBar'),result=document.getElementById('quizResult'),card=document.getElementById('recommendedPlan'),extra=document.getElementById('quizLeadExtra'),restart=document.getElementById('quizRestart'),quizForm=document.getElementById('quizLeadForm'),success=document.getElementById('quizSuccess');
+      function renderQuestion(){const q=questions[questionIndex];progress.textContent=`Question ${questionIndex+1} sur 4`;bar.style.width=`${((questionIndex+1)/4)*100}%`;back.disabled=questionIndex===0;qEl.hidden=false;result.hidden=true;qEl.innerHTML=`<div class="quiz-question"><h3>${q.text}</h3><div class="quiz-choices">${q.answers.map((answer,i)=>`<button class="quiz-choice" type="button" data-answer-index="${i}">${answer[0]}</button>`).join('')}</div></div>`;qEl.querySelectorAll('.quiz-choice').forEach(button=>button.addEventListener('click',()=>choose(Number(button.dataset.answerIndex))));}
+      function choose(answerIndex){const answer=questions[questionIndex].answers[answerIndex];selected[questionIndex]=answer;if(answer[1]!=='keep')scores[answer[1]]+=scoreWeights[answer[1]];if(questionIndex<questions.length-1){questionIndex++;renderQuestion()}else{showResult(answer[1]==='Premium'?'Premium':pickPlan());}}
+      function pickPlan(){let best='Neutre';for(const plan of plans){if(scores[plan]>scores[best]||(scores[plan]===scores[best]&&plans.indexOf(plan)>plans.indexOf(best)))best=plan}return best;}
+      function showResult(q4Plan){recommended=q4Plan;progress.textContent='Résultat';bar.style.width='100%';qEl.hidden=true;back.disabled=true;const d=planDetails[recommended];const reasons=selected.map(a=>a&&a[0]).filter(Boolean).slice(0,2);if(recommended==='Premium'&&!reasons.some(r=>r.includes('site web')))reasons.push('Vous avez besoin d’un site web.');card.innerHTML=`<div class="plan-card-head"><div><h4>${recommended}</h4><span class="recommend-badge">Recommandé pour vous</span></div><strong class="plan-price">${d.price}</strong></div><p>${d.description}</p><p class="quiz-reasons"><strong>Pourquoi :</strong> ${reasons.join(' · ')}</p>`;extra.hidden=!(recommended==='Plus'||recommended==='Premium');result.hidden=false;result.scrollIntoView({behavior:'smooth',block:'start'});}
+      back.addEventListener('click',function(){if(questionIndex===0)return;const previous=selected[questionIndex-1];if(previous&&previous[1]!=='keep')scores[previous[1]]-=scoreWeights[previous[1]];selected.pop();questionIndex--;renderQuestion();});
+      restart.addEventListener('click',function(e){e.preventDefault();questionIndex=0;selected=[];scores={Neutre:0,Standard:0,Plus:0,Premium:0};success.textContent='';quizForm.reset();renderQuestion();document.getElementById('quiz').scrollIntoView({behavior:'smooth'});});
+      quizForm.addEventListener('submit',async function(e){e.preventDefault();if(!quizForm.checkValidity()){quizForm.reportValidity();return}const data=Object.fromEntries(new FormData(quizForm).entries());data.form_type='quiz';data.plan=recommended;data.quiz_answers=JSON.stringify(selected.map(a=>a?a[0]:''));try{const response=await sendLead(data);if(!response.ok)throw new Error('submission failed');success.textContent='Merci, votre demande a bien été enregistrée. Notre équipe vous contactera pour confirmer un rendez-vous.';quizForm.reset()}catch(error){success.textContent='Impossible d’enregistrer votre demande pour le moment.';success.style.color='#8a3d2f';}});
+      renderQuestion();
+    })();
+  </script>
+</body>
+</html>
